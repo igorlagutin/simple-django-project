@@ -1,2 +1,4 @@
 templates/*
 simpleDjangoProject/env/*
+__pycache__
+.idea
