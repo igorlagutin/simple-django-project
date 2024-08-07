@@ -14,6 +14,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from utils.aws import EC2MetadataGetter
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +30,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-#&")
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
-HOST_INFO = os.environ.get("HOST_INFO", "NOT_SET")
+ec2_metadata_getter = EC2MetadataGetter()
+EC2_REGION = ec2_metadata_getter.get_metadata_by_path(path=EC2MetadataGetter.METADATA_REGION)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
