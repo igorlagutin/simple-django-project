@@ -5,6 +5,7 @@ class EC2MetadataGetter:
     EC2_BASE_METADATA_URL = "http://169.254.169.254/latest"
     METADATA_REGION = "placement/region"
     PUBLIC_HOSTNAME = "public-hostname"
+    AVAILABILITY_ZONE = "placement/availability-zone"
 
     def __init__(self):
         self.token = self.get_ec2_metadata_token()

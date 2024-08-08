@@ -32,6 +32,8 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
 ec2_metadata_getter = EC2MetadataGetter()
 EC2_REGION = ec2_metadata_getter.get_metadata_by_path(path=EC2MetadataGetter.METADATA_REGION)
+EC2_PUBLIC_HOSTNAME = ec2_metadata_getter.get_metadata_by_path(path=EC2MetadataGetter.PUBLIC_HOSTNAME)
+EC2_AVAILABILITY_ZONE = ec2_metadata_getter.get_metadata_by_path(path=EC2MetadataGetter.AVAILABILITY_ZONE)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
